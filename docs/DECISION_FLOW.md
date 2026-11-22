@@ -50,3 +50,9 @@ Memory changes an action only through this deterministic rule. No model takes pa
 
 The trace stores the publication, origin case, matched and total steps, evidence points, candidate count, the session's rules and whether the action changed. Results and limits are in [Benchmarks](BENCHMARKS.md#memory-that-changes-the-decision).
 
+## Playbooks
+
+Approved playbooks in `playbooks/*.md` carry an id, a version, `status: approved` and one or more triggers. A trigger is a set of rule IDs. The server loads new versions at startup and refuses a changed file whose version was not increased. `npm run playbooks:sync` uploads each latest version to the confirmed pack's Meko knowledge base and waits for indexing.
+
+For every alerted or investigated event, the trace lists each playbook whose trigger rules all fired somewhere in the session, with its version, checksum, matched trigger, checklist and knowledge-base state. The Investigator receives titles and up to four checklist items. In Meko mode, it also receives up to two `knowledgebase_search` passages. Each passage must bind to an approved version, by title and verbatim section text, before it is used, and the trace records the query, the passages and any unverified hits. Playbooks are guidance and never change an action.
+

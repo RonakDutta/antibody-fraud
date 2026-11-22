@@ -6,6 +6,7 @@
 | `cases` | One investigation or decision per event, with action, timestamps, lease state, and a JSON audit snapshot. |
 | `analyst_feedback` | One analyst decision per case, and the publication it created or corroborated (`publication_id`, migration 007). |
 | `memory_publications` | Outbox and local verified mirror of both Meko datapacks: document, delivery state, remote ID, supersession and revocation. |
+| `playbooks` | Approved playbook versions (migration 008): title, checksum, body, triggers, checklist, and the Meko knowledge-base upload state. An id and version are immutable once loaded. |
 | `schema_migrations` | Migration names, SHA-256 checksums and application times. |
 
 Events identify synthetic accounts, devices and networks, with optional payees for registrations or transfers. Amounts use minor units of one simulated currency. Timing observations are numeric dwell, flight and interaction intervals. No typed text is captured.

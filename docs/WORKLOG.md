@@ -6,17 +6,49 @@ A running record of what was changed, why, and what is still open. Add a new dat
 
 | Item | Status | Where |
 | --- | --- | --- |
-| Rerun the memory comparison against hosted Meko (`--memory-store meko`) | Open | [Benchmarks](BENCHMARKS.md#memory-that-changes-the-decision) |
-| Rerun with live agents (Ollama or Groq) in `agents` and `meko` modes | Open | `npm run evaluate:early -- --mode all --memory compare` |
+| Rerun with live agents (Ollama or Groq) in `agents` and `meko` modes, including knowledge-base passages | Open | `npm run evaluate:early -- --mode all --memory compare` |
+| Decide which datapacks to keep: the session used `meko_default_datapack` (b49d…, confirmed) and (c9e7…, risk); `contextcon-confirmed-patterns` (911e…) and `contextcon-risk-signals` (564b…) also exist | Open, needs the owner | `.env`, then `npm run playbooks:sync` |
 | Attack variants that reorder or skip steps, and more legitimate look-alikes | Open | `src/early-scenarios.ts` |
-| Learning through the API needs Meko keys. Without them the feedback route is not mounted | Open | `src/wiring.ts`, `src/app.ts` |
-| Fraud playbooks in a Meko knowledge base, retrieved and shown in traces | Open | [Hackathon strategy](HACKATHON_STRATEGY.md) |
-| React analyst workspace (stream, case timeline, graph, memory history, feedback) | Open | [Roadmap](ROADMAP.md) Phase 4 |
 | Demo recording under five minutes with at least three trace walkthroughs | Open | Deadline 17 January 2027, 11:59 p.m. Pacific |
-| Memory cannot change a decision | Fixed 22 Nov 2026 | Entry below |
-| Only one hard-coded fingerprint can be learned | Fixed 22 Nov 2026 | Entry below |
-| No warmed-memory comparison on the 2,000-event stream | Fixed 22 Nov 2026, local store | Entry below |
-| Stale design, decision-flow and README text | Fixed 22 Nov 2026 | Entry below |
+| Analyst questions (Meko conversations), report artifacts, workspace access control | Open | [Roadmap](ROADMAP.md) |
+| Fraud playbooks in the Meko knowledge base, retrieved and traced | Done 22 Nov 2026 | Entry below |
+| React analyst workspace | Done 22 Nov 2026 | Entry below |
+| Memory comparison against hosted Meko | Done 22 Nov 2026 | Entry below |
+| Learning without Meko keys | Done 22 Nov 2026 (`MEMORY_STORE=local`) | Entry below |
+| Memory cannot change a decision | Fixed 22 Nov 2026 | Audit entry |
+| Only one hard-coded fingerprint can be learned | Fixed 22 Nov 2026 | Audit entry |
+| No warmed-memory comparison on the 2,000-event stream | Fixed 22 Nov 2026 | Audit entry |
+| Stale design, decision-flow and README text | Fixed 22 Nov 2026 | Audit entry |
+
+## 22 November 2026 — playbooks, Meko knowledge base and the analyst workspace
+
+### Playbooks
+- **Approved files:** six playbooks in `playbooks/`: account takeover, credential stuffing, payee velocity, coordinated ring, legitimate look-alikes and reviewing a verified-pattern block. Each has an id, a version, `status: approved`, rule-ID triggers and a checklist.
+- **Registry:** migration `008_playbooks.sql` adds the registry (`src/playbooks.ts`). The server loads new versions at startup and refuses an edited file without a new version.
+- **Traces:** every alerted or investigated case lists the playbooks whose trigger rules all fired in the session. The Investigator gets titles and checklist items. Playbooks never change an action.
+- **Meko upload:** `npm run playbooks:sync` (`src/integrations/meko-knowledge.ts`) uses the documented REST flow: `upload-url`, a multipart POST to storage with no API key, then `document-status`. **Live:** all six reached `completed`, and a repeat sync returned `already_uploaded`.
+- **Runtime retrieval:** in Meko mode, `knowledgebase_search` passages are bound to approved versions by title and verbatim section text before the Investigator sees them, and the trace records the query, the passages and any unverified hits. **Live:** the bound passages were relevant, with 0 unverified. The previously undocumented response shape is recorded in [Meko capabilities](MEKO_CAPABILITIES.md#knowledge-base-search).
+
+### Workspace
+- **API:** `src/workspace.ts` adds the read routes: `/api/overview`, `/api/cases?view=`, `/api/cases/:id/context`, `/api/memory/patterns`, `/api/playbooks` and an SSE `/api/stream`. Cursors carry microsecond ISO time plus case ID, so paging and streaming never skip or repeat rows (a bug found and fixed during testing).
+- **UI:** `web/` is a React 19, Vite 7 and TypeScript app with:
+  - a live stream and a review queue
+  - case detail with the score meter, evidence, session timeline, collective memory showing matched steps, agents, graph paths, playbook checklists and Meko passages
+  - analyst confirm and correct actions with live publication state
+  - memory patterns with version history and revoke
+  - playbooks
+  - light and dark themes and a phone layout
+- **Serving:** the API serves `web/dist` when it is built.
+- `MEMORY_STORE=local` enables learning without Meko keys. It is labelled as a stand-in in the UI and refused with `INVESTIGATION_MODE=meko`.
+- **Worker fix:** the publication worker now runs in every mode, so confirmed patterns publish in `rules` and `agents` mode too. It drains up to 10 jobs per tick.
+- `npm run demo:feed` streams a synthetic tape into the API with an optional `--auto-analyst`.
+
+### Verification
+- Typecheck and build pass, with 38 unit tests and 35 PostgreSQL tests. The workspace builds, and CI now builds it too.
+- Playwright checks: 1440 px in light and dark themes, and 390 px with 0 px horizontal overflow on every tab. Confirm fraud in the UI led to a published pattern.
+- **Hosted Meko memory comparison** (seed 7403, hard negatives) matched the local stand-in. Executed attacks fell from 14 to 1, repeats executed 0 of 48, and transfer harm fell from 880,000 to 0. Two legitimate events changed before one correction. There were 6 hosted writes for 52 confirmations. Data: `benchmarks/memory-policy-hosted-meko-7403.json`.
+- **Synthetic data in Meko:** 6 playbook documents and 6 pattern memories in b49d…. The risk pack (c9e7…) received none.
+- **Environment note:** Node 22's `fetch` ignores `HTTPS_PROXY`, so the cloud session ran Meko commands with `NODE_USE_ENV_PROXY=1` and the proxy CA. Local runs with a real `MEKO_API_KEY` need neither.
 
 ## 22 November 2026 — audit, then memory that changes decisions
 

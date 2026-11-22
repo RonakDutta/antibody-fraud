@@ -20,7 +20,7 @@ The fast routes need no external calls. The Behaviour/Login and Transaction spec
 
 Database transactions own validation of event identity and state transitions. Remote calls run after the pending case transaction commits. A database lease fences writes to the decision if an investigation is retried after an interrupted request. Recovery currently uses re-posting the same event after lease expiry.
 
-React, Vite and the analyst workspace follow the learning loop. Institution-wide identity, internet deployment and access controls are outside the local Phase 1 boundary.
+The analyst workspace in `web/` is a React and Vite client of the same API. It uses read-only routes from `src/workspace.ts`: overview, case lists, session context, patterns, playbooks and a server-sent-event stream that polls PostgreSQL. Writes go through the existing feedback and revoke routes. `npm run build` in `web/` produces static files, which the API serves when present. Institution-wide identity, internet deployment and access controls are outside the local Phase 1 boundary.
 
 ## Collective-learning slice
 

@@ -12,6 +12,7 @@ import {
   compactSteps, currentStep, loadSessionSteps, MIN_MATCHED_STEPS, MIN_MATCHED_POINTS, PATTERN_FRESHNESS_DAYS,
   matchPattern, sessionRules, stepPoints, type PatternMatch, type PatternStep,
 } from './memory-policy.js';
+import { bindKnowledgeHits } from './playbooks.js';
 
 export const LOGIN_AGENT = 'contextcon-behaviour-login';
 export const GRAPH_AGENT = 'contextcon-graph';
@@ -52,7 +53,9 @@ export interface MemoryGateway {
   recent(agentId: string, signal: AbortSignal): Promise<RecordHit[]>;
   read(id: string, agentId: string, signal: AbortSignal): Promise<RecordHit | null>;
   write(text: string, agentId: string, signal: AbortSignal): Promise<string | null>;
+  knowledgeSearch?(query: string, agentId: string, signal: AbortSignal, limit?: number): Promise<{ hits: KnowledgeHit[] }>;
 }
+export type KnowledgeHit = { documentId: string | null; text: string | null; score: number | null; rank?: number | null };
 
 export const feedbackSchema = z.discriminatedUnion('verdict', [
   z.strictObject({ verdict: z.literal('fraud_confirmed') }),
@@ -134,6 +137,17 @@ export class LearningService {
   ) {}
 
   hasPack(pack: Pack) { return Boolean(this.packs[pack]); }
+
+  /**
+   * Ranked playbook passages from the confirmed pack's knowledge base, bound to approved local
+   * versions. Returns null when the gateway has no knowledge search (the local stand-in).
+   */
+  async knowledgeContext(query: string, agentId: string, limit = 4) {
+    const gateway = this.packs.confirmed;
+    if (!gateway?.knowledgeSearch) return null;
+    const { hits } = await gateway.knowledgeSearch(query, agentId, AbortSignal.timeout(this.timeoutMs), limit);
+    return { hits: hits.length, ...await bindKnowledgeHits(this.pool, hits) };
+  }
 
   async recordObservation(db: pg.PoolClient, caseId: string, agent: AgentTrace | undefined) {
     if (!this.packs.risk || !agent?.result?.evidence.length) return;

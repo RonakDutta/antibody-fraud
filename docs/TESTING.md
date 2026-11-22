@@ -46,3 +46,23 @@ The tests cover new processes reclaiming pending work, late exact-ID visibility,
 - `test/memory-policy.postgres.ts` runs real ingestion and the publication worker with the local stand-in store. It checks that an unpublished pattern is unusable, shadow records without enforcing, and enforce blocks another account's reset with a full trace. Identical confirmations corroborate one pattern. A legitimate customer's block can be corrected with a condition: the customer is then relieved, while the attack is still blocked at the transfer. Revocation disables the pattern, `off` adds nothing to the trace, and the origin account never matches its own pattern.
 - `evaluate:early --memory compare [--hard-negatives]` produced the results in [Benchmarks](BENCHMARKS.md#memory-that-changes-the-decision). Set `EVAL_DEBUG=1` to print the underlying error when the evaluator fails.
 
+## Playbooks and workspace milestone
+
+- On 22 November 2026, typecheck, build, 38 unit tests and 35 PostgreSQL tests passed, and the workspace built. CI now builds `web/` too.
+- **Unit tests:**
+  - every playbook parses with known rule triggers
+  - unapproved files are rejected
+  - the REST knowledge-base upload sends form fields before the file, sends no API key to storage, skips already-uploaded bytes and treats an early 404 status as awaiting upload
+  - passage binding accepts only verbatim approved section text
+- **PostgreSQL tests:**
+  - registry versioning refuses an edited file without a new version
+  - alerted cases carry matching playbooks and allowed cases carry none
+  - the workspace API serves overview, filtered lists with exact cursor paging, session context, patterns and playbooks
+  - the server-sent-event stream delivers newly decided cases
+- **Live Meko:**
+  - `verify:meko` passed for both packs
+  - `playbooks:sync` uploaded six playbooks to `completed`, and the knowledge-base search shape was recorded
+  - runtime passages were bound with 0 unverified
+  - the hosted memory comparison is recorded in [Benchmarks](BENCHMARKS.md#hosted-meko-rerun)
+- **Browser:** checked with Playwright at 1440 px in light and dark themes and at 390 px with no horizontal overflow. Confirm fraud in the UI produced a published pattern within seconds.
+

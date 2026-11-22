@@ -189,10 +189,19 @@ The default tape has no legitimate session that resembles an attack before money
 
 In every run, the first recovering customer was blocked at the password reset and again at the payee step by the takeover pattern. The analyst's correction required `amount_spike`. Version 2 then matched later takeovers only at the transfer, where they were still blocked, and no later customer matched. The added legitimate alert in each run is that first customer. The rules already challenge most recovery sessions because they combine a new device with shifted typing. [Seed 7403 run](../benchmarks/memory-policy-hard-negatives-7403.json) [Sweep summary](../benchmarks/memory-policy-sweep.json)
 
+### Hosted Meko rerun
+
+The seed-7403 hard-negative run was repeated on 22 November 2026 with `--memory-store meko`, so every pattern was written to the hosted confirmed datapack and read back by exact ID before use. The results matched the local stand-in exactly:
+- Executed attacks fell from 14 to 1, and repeat encounters executed 0 of 48.
+- Executed transfer harm fell from 880,000 to 0.
+- The legitimate alert rate went from 15.18% to 15.45%, with 2 legitimate events changed before one correction.
+
+The 52 confirmations produced 6 hosted writes: 5 patterns and 1 corrected version. The rest corroborated existing patterns. The run took 31 seconds, and per-event p95 latency was 6 ms, because the policy reads the local verified mirror rather than calling Meko per event. [Hosted run](../benchmarks/memory-policy-hosted-meko-7403.json)
+
 ### Limits
 
 - **Easy repeats.** Synthetic repeats come from one template per attack type with small variations in timing, location, amount and burst size. This makes repeat recognition easy. Real attackers vary their steps, so these figures show the mechanism, not field accuracy.
-- **Local store.** Patterns were stored in the local in-process stand-in (`src/integrations/local-memory.ts`) with the same write and exact-ID read-back contract, not hosted Meko. Pass `--memory-store meko` with configured credentials to repeat the run against the confirmed datapack.
+- **Store.** The sweep used the local in-process stand-in (`src/integrations/local-memory.ts`), which has the same write and exact-ID read-back contract. The seed-7403 hard-negative run was also repeated on hosted Meko with identical results (above).
 - **Simulated analyst.** It confirms every attack and corrects mistakes perfectly after 30 simulated minutes. Slower, partial or wrong feedback would reduce the benefit and could add false blocks.
 - **Strict blocking.** A pattern blocks on a two-step match. A narrower opening, such as a single risky login followed by a reset, would also catch legitimate recoveries until corrected. One hard-negative family is a small sample.
 - **Coverage.** Agent and Meko modes were not part of this sweep because no model provider was configured. The policy runs before agents in every mode, and a memory block makes no model call.
