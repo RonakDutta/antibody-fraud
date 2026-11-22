@@ -1,0 +1,475 @@
+{
+  "source": "Observed local PostgreSQL rules-only shadow replays. Scenarios, labels, outcomes and money are synthetic.",
+  "runConditions": "Each profile had a separate fresh PostgreSQL schema. The commands ran concurrently, so timing is descriptive of that execution only.",
+  "corpus": {
+    "split": "evaluation",
+    "seed": 7403,
+    "requestedMaxEvents": 2000,
+    "scenario": "all"
+  },
+  "reproduce": "npm run evaluate:early -- --suite evaluation --seed 7403 --events 2000 --mode rules --profile PROFILE --json",
+  "runs": [
+    {
+      "mode": "rules",
+      "profile": "legacy",
+      "schema": "contextcon_eval_a2f2e894e4b4d47a_rules",
+      "provider": null,
+      "model": null,
+      "retrievalScope": "disabled",
+      "policyThresholds": {
+        "challenge": 25,
+        "block": 72
+      },
+      "wallMs": 68362,
+      "roleMix": {},
+      "interventionSemantics": "Identical attempted events are shadow-replayed. In a separate effect ledger, a BLOCK or failed synthetic challenge holds that account/session; a passed challenge permits the attempt. An earlier hold can prevent a later impact only in that same session. These outcomes are simulated, not counterfactual engine retraining.",
+      "classificationSemantics": "Unweighted event-level TP/FP/TN/FN for recommendations. BLOCK or STEP_UP_VERIFICATION is positive, including when a challenge passes. Malicious episode action and impact rows are ground-truth positives. Warmup and failed-authentication observation rows are excluded.",
+      "eventCount": 1999,
+      "warmupExcluded": 1280,
+      "failedAuthObservationsExcluded": 65,
+      "actionCounts": {
+        "ALLOW": 530,
+        "STEP_UP_VERIFICATION": 124,
+        "BLOCK": 0
+      },
+      "simulatedGates": {
+        "challengePassed": 38,
+        "challengeFailed": 43,
+        "directBlock": 0,
+        "precludedAttempts": 61
+      },
+      "classification": {
+        "tp": 115,
+        "fp": 9,
+        "tn": 350,
+        "fn": 180,
+        "precision": 0.9274193548387096,
+        "recall": 0.3898305084745763,
+        "f1": 0.548926014319809,
+        "falsePositiveRate": 0.025069637883008356,
+        "falseNegativeRate": 0.6101694915254238
+      },
+      "byScenario": {
+        "credential-stuffing": {
+          "episodes": 15,
+          "classification": {
+            "tp": 30,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0,
+            "precision": 1,
+            "recall": 1,
+            "f1": 1,
+            "falsePositiveRate": null,
+            "falseNegativeRate": 0
+          },
+          "attacksAlertedBeforeImpact": 15,
+          "attacksPrevented": 14
+        },
+        "velocity": {
+          "episodes": 15,
+          "classification": {
+            "tp": 15,
+            "fp": 0,
+            "tn": 0,
+            "fn": 68,
+            "precision": 1,
+            "recall": 0.18072289156626506,
+            "f1": 0.30612244897959184,
+            "falsePositiveRate": null,
+            "falseNegativeRate": 0.8192771084337349
+          },
+          "attacksAlertedBeforeImpact": 0,
+          "attacksPrevented": 10
+        },
+        "takeover": {
+          "episodes": 14,
+          "classification": {
+            "tp": 28,
+            "fp": 0,
+            "tn": 0,
+            "fn": 28,
+            "precision": 1,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "falsePositiveRate": null,
+            "falseNegativeRate": 0.5
+          },
+          "attacksAlertedBeforeImpact": 14,
+          "attacksPrevented": 9
+        },
+        "coordinated": {
+          "episodes": 14,
+          "classification": {
+            "tp": 42,
+            "fp": 0,
+            "tn": 0,
+            "fn": 84,
+            "precision": 1,
+            "recall": 0.3333333333333333,
+            "f1": 0.5,
+            "falsePositiveRate": null,
+            "falseNegativeRate": 0.6666666666666666
+          },
+          "attacksAlertedBeforeImpact": 14,
+          "attacksPrevented": 10
+        },
+        "ordinary": {
+          "episodes": 14,
+          "classification": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 28,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "falsePositiveRate": 0,
+            "falseNegativeRate": null
+          },
+          "attacksAlertedBeforeImpact": 0,
+          "attacksPrevented": 0
+        },
+        "legitimate-travel": {
+          "episodes": 14,
+          "classification": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 28,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "falsePositiveRate": 0,
+            "falseNegativeRate": null
+          },
+          "attacksAlertedBeforeImpact": 0,
+          "attacksPrevented": 0
+        },
+        "shared-household": {
+          "episodes": 14,
+          "classification": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 112,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "falsePositiveRate": 0,
+            "falseNegativeRate": null
+          },
+          "attacksAlertedBeforeImpact": 0,
+          "attacksPrevented": 0
+        },
+        "shared-office": {
+          "episodes": 14,
+          "classification": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 112,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "falsePositiveRate": 0,
+            "falseNegativeRate": null
+          },
+          "attacksAlertedBeforeImpact": 0,
+          "attacksPrevented": 0
+        },
+        "legitimate-burst": {
+          "episodes": 14,
+          "classification": {
+            "tp": 0,
+            "fp": 9,
+            "tn": 70,
+            "fn": 0,
+            "precision": 0,
+            "recall": null,
+            "f1": 0,
+            "falsePositiveRate": 0.11392405063291139,
+            "falseNegativeRate": null
+          },
+          "attacksAlertedBeforeImpact": 0,
+          "attacksPrevented": 0
+        }
+      },
+      "legitimateStepUpRate": 0.025069637883008356,
+      "legitimateActionableEvents": 359,
+      "attacks": {
+        "total": 58,
+        "alertedBeforeImpact": 43,
+        "alertLeadSeconds": {
+          "p50": 420,
+          "p95": 540
+        },
+        "preventedBeforeImpact": 33,
+        "preventedAtImpact": 10,
+        "preventedByBlock": 0,
+        "preventedByFailedChallenge": 43,
+        "executed": 15,
+        "byImpactKind": {
+          "account_access": {
+            "total": 15,
+            "alertedBeforeImpact": 15,
+            "prevented": 14
+          },
+          "transfer": {
+            "total": 43,
+            "alertedBeforeImpact": 28,
+            "prevented": 29
+          }
+        },
+        "simulatedTransferHarmPreventedMinor": 2219000,
+        "simulatedTransferHarmExecutedMinor": 1043800
+      },
+      "telemetry": {
+        "totalCalls": 0,
+        "measuredUsageCalls": 0,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "latencyMs": {
+          "p50": 13.053299999999581,
+          "p95": 53.45789999999397
+        },
+        "casesWithVerifiedFingerprintReuse": 0,
+        "casesWithEarlierPublishedObservations": 0,
+        "rankedSearches": 0,
+        "rankedHits": 0,
+        "rejectedCandidates": 0
+      }
+    },
+    {
+      "mode": "rules",
+      "profile": "extended",
+      "schema": "contextcon_eval_5ed91ea0612ce31b_rules",
+      "provider": null,
+      "model": null,
+      "retrievalScope": "disabled",
+      "policyThresholds": {
+        "challenge": 25,
+        "block": 72
+      },
+      "wallMs": 68619,
+      "roleMix": {},
+      "interventionSemantics": "Identical attempted events are shadow-replayed. In a separate effect ledger, a BLOCK or failed synthetic challenge holds that account/session; a passed challenge permits the attempt. An earlier hold can prevent a later impact only in that same session. These outcomes are simulated, not counterfactual engine retraining.",
+      "classificationSemantics": "Unweighted event-level TP/FP/TN/FN for recommendations. BLOCK or STEP_UP_VERIFICATION is positive, including when a challenge passes. Malicious episode action and impact rows are ground-truth positives. Warmup and failed-authentication observation rows are excluded.",
+      "eventCount": 1999,
+      "warmupExcluded": 1280,
+      "failedAuthObservationsExcluded": 65,
+      "actionCounts": {
+        "ALLOW": 487,
+        "STEP_UP_VERIFICATION": 167,
+        "BLOCK": 0
+      },
+      "simulatedGates": {
+        "challengePassed": 62,
+        "challengeFailed": 43,
+        "directBlock": 0,
+        "precludedAttempts": 71
+      },
+      "classification": {
+        "tp": 144,
+        "fp": 23,
+        "tn": 336,
+        "fn": 151,
+        "precision": 0.8622754491017964,
+        "recall": 0.488135593220339,
+        "f1": 0.6233766233766234,
+        "falsePositiveRate": 0.06406685236768803,
+        "falseNegativeRate": 0.511864406779661
+      },
+      "byScenario": {
+        "credential-stuffing": {
+          "episodes": 15,
+          "classification": {
+            "tp": 30,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0,
+            "precision": 1,
+            "recall": 1,
+            "f1": 1,
+            "falsePositiveRate": null,
+            "falseNegativeRate": 0
+          },
+          "attacksAlertedBeforeImpact": 15,
+          "attacksPrevented": 14
+        },
+        "velocity": {
+          "episodes": 15,
+          "classification": {
+            "tp": 30,
+            "fp": 0,
+            "tn": 0,
+            "fn": 53,
+            "precision": 1,
+            "recall": 0.3614457831325301,
+            "f1": 0.5309734513274337,
+            "falsePositiveRate": null,
+            "falseNegativeRate": 0.6385542168674698
+          },
+          "attacksAlertedBeforeImpact": 15,
+          "attacksPrevented": 10
+        },
+        "takeover": {
+          "episodes": 14,
+          "classification": {
+            "tp": 42,
+            "fp": 0,
+            "tn": 0,
+            "fn": 14,
+            "precision": 1,
+            "recall": 0.75,
+            "f1": 0.8571428571428571,
+            "falsePositiveRate": null,
+            "falseNegativeRate": 0.25
+          },
+          "attacksAlertedBeforeImpact": 14,
+          "attacksPrevented": 9
+        },
+        "coordinated": {
+          "episodes": 14,
+          "classification": {
+            "tp": 42,
+            "fp": 0,
+            "tn": 0,
+            "fn": 84,
+            "precision": 1,
+            "recall": 0.3333333333333333,
+            "f1": 0.5,
+            "falsePositiveRate": null,
+            "falseNegativeRate": 0.6666666666666666
+          },
+          "attacksAlertedBeforeImpact": 14,
+          "attacksPrevented": 10
+        },
+        "ordinary": {
+          "episodes": 14,
+          "classification": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 28,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "falsePositiveRate": 0,
+            "falseNegativeRate": null
+          },
+          "attacksAlertedBeforeImpact": 0,
+          "attacksPrevented": 0
+        },
+        "legitimate-travel": {
+          "episodes": 14,
+          "classification": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 28,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "falsePositiveRate": 0,
+            "falseNegativeRate": null
+          },
+          "attacksAlertedBeforeImpact": 0,
+          "attacksPrevented": 0
+        },
+        "shared-household": {
+          "episodes": 14,
+          "classification": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 112,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "falsePositiveRate": 0,
+            "falseNegativeRate": null
+          },
+          "attacksAlertedBeforeImpact": 0,
+          "attacksPrevented": 0
+        },
+        "shared-office": {
+          "episodes": 14,
+          "classification": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 112,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "falsePositiveRate": 0,
+            "falseNegativeRate": null
+          },
+          "attacksAlertedBeforeImpact": 0,
+          "attacksPrevented": 0
+        },
+        "legitimate-burst": {
+          "episodes": 14,
+          "classification": {
+            "tp": 0,
+            "fp": 23,
+            "tn": 56,
+            "fn": 0,
+            "precision": 0,
+            "recall": null,
+            "f1": 0,
+            "falsePositiveRate": 0.2911392405063291,
+            "falseNegativeRate": null
+          },
+          "attacksAlertedBeforeImpact": 0,
+          "attacksPrevented": 0
+        }
+      },
+      "legitimateStepUpRate": 0.06406685236768803,
+      "legitimateActionableEvents": 359,
+      "attacks": {
+        "total": 58,
+        "alertedBeforeImpact": 58,
+        "alertLeadSeconds": {
+          "p50": 270,
+          "p95": 540
+        },
+        "preventedBeforeImpact": 43,
+        "preventedAtImpact": 0,
+        "preventedByBlock": 0,
+        "preventedByFailedChallenge": 43,
+        "executed": 15,
+        "byImpactKind": {
+          "account_access": {
+            "total": 15,
+            "alertedBeforeImpact": 15,
+            "prevented": 14
+          },
+          "transfer": {
+            "total": 43,
+            "alertedBeforeImpact": 43,
+            "prevented": 29
+          }
+        },
+        "simulatedTransferHarmPreventedMinor": 2219000,
+        "simulatedTransferHarmExecutedMinor": 1043800
+      },
+      "telemetry": {
+        "totalCalls": 0,
+        "measuredUsageCalls": 0,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "latencyMs": {
+          "p50": 13.257100000002538,
+          "p95": 50.283800000001065
+        },
+        "casesWithVerifiedFingerprintReuse": 0,
+        "casesWithEarlierPublishedObservations": 0,
+        "rankedSearches": 0,
+        "rankedHits": 0,
+        "rejectedCandidates": 0
+      }
+    }
+  ]
+}

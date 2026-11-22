@@ -1,0 +1,731 @@
+{
+  "seed": 7403,
+  "eventCount": 1999,
+  "leadDefinition": "Lead is measured from the first pre-impact step-up or block to the impact attempt. Episode steps exclude warmup, include failed-auth observations, and count the impact step.",
+  "runs": [
+    {
+      "profile": "legacy",
+      "schema": "contextcon_eval_723b26513ffbc4fc_rules",
+      "alertedBeforeImpact": 43,
+      "alertLeadSeconds": {
+        "p50": 420,
+        "p95": 540
+      },
+      "alertLeadSteps": {
+        "p50": 2,
+        "p95": 3
+      }
+    },
+    {
+      "profile": "extended",
+      "schema": "contextcon_eval_ed4a829afb0f361a_rules",
+      "alertedBeforeImpact": 58,
+      "alertLeadSeconds": {
+        "p50": 270,
+        "p95": 540
+      },
+      "alertLeadSteps": {
+        "p50": 1,
+        "p95": 3
+      }
+    }
+  ],
+  "episodes": [
+    {
+      "episodeId": "ep-8311b96bc1e5ee3ec553d237",
+      "scenario": "credential-stuffing",
+      "legacy": {
+        "steps": 1,
+        "seconds": 240
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 240
+      }
+    },
+    {
+      "episodeId": "ep-49a308b1651811a33f4c5628",
+      "scenario": "velocity",
+      "legacy": {
+        "steps": null,
+        "seconds": null
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 270
+      }
+    },
+    {
+      "episodeId": "ep-53a2865da16430c6990cf94f",
+      "scenario": "takeover",
+      "legacy": {
+        "steps": 3,
+        "seconds": 540
+      },
+      "extended": {
+        "steps": 3,
+        "seconds": 540
+      }
+    },
+    {
+      "episodeId": "ep-a2e4a49c41dc53974f42c769",
+      "scenario": "coordinated",
+      "legacy": {
+        "steps": 2,
+        "seconds": 420
+      },
+      "extended": {
+        "steps": 2,
+        "seconds": 420
+      }
+    },
+    {
+      "episodeId": "ep-abda7f224df63a70f17ce242",
+      "scenario": "credential-stuffing",
+      "legacy": {
+        "steps": 1,
+        "seconds": 240
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 240
+      }
+    },
+    {
+      "episodeId": "ep-3a3d458db4f45269dd4eef03",
+      "scenario": "velocity",
+      "legacy": {
+        "steps": null,
+        "seconds": null
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 270
+      }
+    },
+    {
+      "episodeId": "ep-53af3f64855a7f43ebc08292",
+      "scenario": "takeover",
+      "legacy": {
+        "steps": 3,
+        "seconds": 540
+      },
+      "extended": {
+        "steps": 3,
+        "seconds": 540
+      }
+    },
+    {
+      "episodeId": "ep-ddde13a9bcca19e8427d3cc5",
+      "scenario": "coordinated",
+      "legacy": {
+        "steps": 2,
+        "seconds": 420
+      },
+      "extended": {
+        "steps": 2,
+        "seconds": 420
+      }
+    },
+    {
+      "episodeId": "ep-d2bae9ee13a1a637cf534fb5",
+      "scenario": "credential-stuffing",
+      "legacy": {
+        "steps": 1,
+        "seconds": 240
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 240
+      }
+    },
+    {
+      "episodeId": "ep-12955811652be7d3fd9448b8",
+      "scenario": "velocity",
+      "legacy": {
+        "steps": null,
+        "seconds": null
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 270
+      }
+    },
+    {
+      "episodeId": "ep-0203cfc6b741e81fa44d7ca2",
+      "scenario": "takeover",
+      "legacy": {
+        "steps": 3,
+        "seconds": 540
+      },
+      "extended": {
+        "steps": 3,
+        "seconds": 540
+      }
+    },
+    {
+      "episodeId": "ep-e898d9574d74e99cd3cf4f7c",
+      "scenario": "coordinated",
+      "legacy": {
+        "steps": 2,
+        "seconds": 420
+      },
+      "extended": {
+        "steps": 2,
+        "seconds": 420
+      }
+    },
+    {
+      "episodeId": "ep-28a7ff8e64580867096c4ffc",
+      "scenario": "credential-stuffing",
+      "legacy": {
+        "steps": 1,
+        "seconds": 240
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 240
+      }
+    },
+    {
+      "episodeId": "ep-d79b6c6e602f51a62d64d13d",
+      "scenario": "velocity",
+      "legacy": {
+        "steps": null,
+        "seconds": null
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 270
+      }
+    },
+    {
+      "episodeId": "ep-74e24d3517231ec18a083f17",
+      "scenario": "takeover",
+      "legacy": {
+        "steps": 3,
+        "seconds": 540
+      },
+      "extended": {
+        "steps": 3,
+        "seconds": 540
+      }
+    },
+    {
+      "episodeId": "ep-30e41f8438005d9b24e45735",
+      "scenario": "coordinated",
+      "legacy": {
+        "steps": 2,
+        "seconds": 420
+      },
+      "extended": {
+        "steps": 2,
+        "seconds": 420
+      }
+    },
+    {
+      "episodeId": "ep-969c51b1235141ff0bcda170",
+      "scenario": "credential-stuffing",
+      "legacy": {
+        "steps": 1,
+        "seconds": 240
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 240
+      }
+    },
+    {
+      "episodeId": "ep-34406a6f496a8546a4dd828d",
+      "scenario": "velocity",
+      "legacy": {
+        "steps": null,
+        "seconds": null
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 270
+      }
+    },
+    {
+      "episodeId": "ep-a5a3cafada1005edbac72ea3",
+      "scenario": "takeover",
+      "legacy": {
+        "steps": 3,
+        "seconds": 540
+      },
+      "extended": {
+        "steps": 3,
+        "seconds": 540
+      }
+    },
+    {
+      "episodeId": "ep-4c7d47600d1995ab7e049e80",
+      "scenario": "coordinated",
+      "legacy": {
+        "steps": 2,
+        "seconds": 420
+      },
+      "extended": {
+        "steps": 2,
+        "seconds": 420
+      }
+    },
+    {
+      "episodeId": "ep-9929c685e911d2fa8fd1692c",
+      "scenario": "credential-stuffing",
+      "legacy": {
+        "steps": 1,
+        "seconds": 240
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 240
+      }
+    },
+    {
+      "episodeId": "ep-6771969419de1fdd601d08db",
+      "scenario": "velocity",
+      "legacy": {
+        "steps": null,
+        "seconds": null
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 270
+      }
+    },
+    {
+      "episodeId": "ep-bbe56f0368d3292bc420d825",
+      "scenario": "takeover",
+      "legacy": {
+        "steps": 3,
+        "seconds": 540
+      },
+      "extended": {
+        "steps": 3,
+        "seconds": 540
+      }
+    },
+    {
+      "episodeId": "ep-e4e2142089bd5eb5213a932c",
+      "scenario": "coordinated",
+      "legacy": {
+        "steps": 2,
+        "seconds": 420
+      },
+      "extended": {
+        "steps": 2,
+        "seconds": 420
+      }
+    },
+    {
+      "episodeId": "ep-998cde21a84519833322bbe8",
+      "scenario": "credential-stuffing",
+      "legacy": {
+        "steps": 1,
+        "seconds": 240
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 240
+      }
+    },
+    {
+      "episodeId": "ep-0222a1e8322cf382ff219569",
+      "scenario": "velocity",
+      "legacy": {
+        "steps": null,
+        "seconds": null
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 270
+      }
+    },
+    {
+      "episodeId": "ep-9434ac8d5540f2f2cd21d5eb",
+      "scenario": "takeover",
+      "legacy": {
+        "steps": 3,
+        "seconds": 540
+      },
+      "extended": {
+        "steps": 3,
+        "seconds": 540
+      }
+    },
+    {
+      "episodeId": "ep-a560e51964ed191210acf615",
+      "scenario": "coordinated",
+      "legacy": {
+        "steps": 2,
+        "seconds": 420
+      },
+      "extended": {
+        "steps": 2,
+        "seconds": 420
+      }
+    },
+    {
+      "episodeId": "ep-b306e1f15435fabc975635d7",
+      "scenario": "credential-stuffing",
+      "legacy": {
+        "steps": 1,
+        "seconds": 240
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 240
+      }
+    },
+    {
+      "episodeId": "ep-bf2254f8a35d0c2c2b45b87f",
+      "scenario": "velocity",
+      "legacy": {
+        "steps": null,
+        "seconds": null
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 270
+      }
+    },
+    {
+      "episodeId": "ep-74dc2bf1fa1e779e7dff5992",
+      "scenario": "takeover",
+      "legacy": {
+        "steps": 3,
+        "seconds": 540
+      },
+      "extended": {
+        "steps": 3,
+        "seconds": 540
+      }
+    },
+    {
+      "episodeId": "ep-52e13feedf00f8340c42e310",
+      "scenario": "coordinated",
+      "legacy": {
+        "steps": 2,
+        "seconds": 420
+      },
+      "extended": {
+        "steps": 2,
+        "seconds": 420
+      }
+    },
+    {
+      "episodeId": "ep-76d33f006db64612e31071f8",
+      "scenario": "credential-stuffing",
+      "legacy": {
+        "steps": 1,
+        "seconds": 240
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 240
+      }
+    },
+    {
+      "episodeId": "ep-8f95a0cc791e146cf20bb0bf",
+      "scenario": "velocity",
+      "legacy": {
+        "steps": null,
+        "seconds": null
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 270
+      }
+    },
+    {
+      "episodeId": "ep-ab893b4d2aa472260ed393cc",
+      "scenario": "takeover",
+      "legacy": {
+        "steps": 3,
+        "seconds": 540
+      },
+      "extended": {
+        "steps": 3,
+        "seconds": 540
+      }
+    },
+    {
+      "episodeId": "ep-7ae6e28b21092bc3177d94ce",
+      "scenario": "coordinated",
+      "legacy": {
+        "steps": 2,
+        "seconds": 420
+      },
+      "extended": {
+        "steps": 2,
+        "seconds": 420
+      }
+    },
+    {
+      "episodeId": "ep-a75b5e54d3579f29df2c277e",
+      "scenario": "credential-stuffing",
+      "legacy": {
+        "steps": 1,
+        "seconds": 240
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 240
+      }
+    },
+    {
+      "episodeId": "ep-80e02f56c4ec0fb2baf75fab",
+      "scenario": "velocity",
+      "legacy": {
+        "steps": null,
+        "seconds": null
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 270
+      }
+    },
+    {
+      "episodeId": "ep-cb6c0c3028d2c126471ec7a6",
+      "scenario": "takeover",
+      "legacy": {
+        "steps": 3,
+        "seconds": 540
+      },
+      "extended": {
+        "steps": 3,
+        "seconds": 540
+      }
+    },
+    {
+      "episodeId": "ep-e70fa8d0d25792559f531e9c",
+      "scenario": "coordinated",
+      "legacy": {
+        "steps": 2,
+        "seconds": 420
+      },
+      "extended": {
+        "steps": 2,
+        "seconds": 420
+      }
+    },
+    {
+      "episodeId": "ep-4e34ff35272880e1256c0aaf",
+      "scenario": "credential-stuffing",
+      "legacy": {
+        "steps": 1,
+        "seconds": 240
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 240
+      }
+    },
+    {
+      "episodeId": "ep-3926326bb2fb34cfd72a24d4",
+      "scenario": "velocity",
+      "legacy": {
+        "steps": null,
+        "seconds": null
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 270
+      }
+    },
+    {
+      "episodeId": "ep-c3fbf2c48bbf49ce6f9662b2",
+      "scenario": "takeover",
+      "legacy": {
+        "steps": 3,
+        "seconds": 540
+      },
+      "extended": {
+        "steps": 3,
+        "seconds": 540
+      }
+    },
+    {
+      "episodeId": "ep-4cd3e32e083554a9be52591f",
+      "scenario": "coordinated",
+      "legacy": {
+        "steps": 2,
+        "seconds": 420
+      },
+      "extended": {
+        "steps": 2,
+        "seconds": 420
+      }
+    },
+    {
+      "episodeId": "ep-fd4b24a5a8f4a1ce72313219",
+      "scenario": "credential-stuffing",
+      "legacy": {
+        "steps": 1,
+        "seconds": 240
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 240
+      }
+    },
+    {
+      "episodeId": "ep-fee4cd7491c5747f136dc583",
+      "scenario": "velocity",
+      "legacy": {
+        "steps": null,
+        "seconds": null
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 270
+      }
+    },
+    {
+      "episodeId": "ep-7d62422906304db35ff63c45",
+      "scenario": "takeover",
+      "legacy": {
+        "steps": 3,
+        "seconds": 540
+      },
+      "extended": {
+        "steps": 3,
+        "seconds": 540
+      }
+    },
+    {
+      "episodeId": "ep-1d218661a27cac5b95098b2d",
+      "scenario": "coordinated",
+      "legacy": {
+        "steps": 2,
+        "seconds": 420
+      },
+      "extended": {
+        "steps": 2,
+        "seconds": 420
+      }
+    },
+    {
+      "episodeId": "ep-926cb7d6127dcaf3fa4ef16c",
+      "scenario": "credential-stuffing",
+      "legacy": {
+        "steps": 1,
+        "seconds": 240
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 240
+      }
+    },
+    {
+      "episodeId": "ep-44ec3de926f37206eb004029",
+      "scenario": "velocity",
+      "legacy": {
+        "steps": null,
+        "seconds": null
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 270
+      }
+    },
+    {
+      "episodeId": "ep-c1c253ad2ffd8fefb32417aa",
+      "scenario": "takeover",
+      "legacy": {
+        "steps": 3,
+        "seconds": 540
+      },
+      "extended": {
+        "steps": 3,
+        "seconds": 540
+      }
+    },
+    {
+      "episodeId": "ep-10671423affe7991810a85c6",
+      "scenario": "coordinated",
+      "legacy": {
+        "steps": 2,
+        "seconds": 420
+      },
+      "extended": {
+        "steps": 2,
+        "seconds": 420
+      }
+    },
+    {
+      "episodeId": "ep-18da3a446cbc8be21a97ff2d",
+      "scenario": "credential-stuffing",
+      "legacy": {
+        "steps": 1,
+        "seconds": 240
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 240
+      }
+    },
+    {
+      "episodeId": "ep-6a4f61f4161b43c4e62b59e2",
+      "scenario": "velocity",
+      "legacy": {
+        "steps": null,
+        "seconds": null
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 270
+      }
+    },
+    {
+      "episodeId": "ep-ddb9dced741c20b79fd63a4e",
+      "scenario": "takeover",
+      "legacy": {
+        "steps": 3,
+        "seconds": 540
+      },
+      "extended": {
+        "steps": 3,
+        "seconds": 540
+      }
+    },
+    {
+      "episodeId": "ep-6b23d39f17cbaaa20dc4d6fd",
+      "scenario": "coordinated",
+      "legacy": {
+        "steps": 2,
+        "seconds": 420
+      },
+      "extended": {
+        "steps": 2,
+        "seconds": 420
+      }
+    },
+    {
+      "episodeId": "ep-4e0c5cd496dc2d257e1adf91",
+      "scenario": "credential-stuffing",
+      "legacy": {
+        "steps": 1,
+        "seconds": 240
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 240
+      }
+    },
+    {
+      "episodeId": "ep-12629651715aeddc7fbff030",
+      "scenario": "velocity",
+      "legacy": {
+        "steps": null,
+        "seconds": null
+      },
+      "extended": {
+        "steps": 1,
+        "seconds": 270
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+# Roadmap
+
+| Milestone | Status | Acceptance evidence or next gate |
+| --- | --- | --- |
+| Phase 1: rules backend | Complete | Official brief checked. Express app, Compose PostgreSQL, migrations, strict ingestion, repeatable simulator, deterministic risk actions and durable traces run locally. A real PostgreSQL suite covers duplicates, time windows, isolation and fallback. |
+| Phase 2: providers and specialists | Implemented | Behaviour/Login, Device/IP, Transaction, PostgreSQL Graph and Investigator. Ollama live, Gemini adapter preserved. Groq strict JSON and rate-limit/fallback contracts tested locally. Groq live verification awaits a Free key. |
+| Phase 2: Case A teaches Case B | Live verified | Same key verified both packs. Real publication and search visibility confirmed for provisional and verified records. A fresh process recovered A’s fingerprint for a distinct case and skipped the Behaviour/Login review. Demo recall is scoped to the current run’s live Meko IDs. Acknowledged writes use exact-ID reconciliation and interrupted demos resume by schema. |
+| Phase 3: correction and relationships | Implemented | C/D correction remains verified. PostgreSQL graph uses bounded paths and role-specific evidence, with household, office, merchant and timing tests. Broader fingerprint families and durable analyst conversations remain open. |
+| Phase 3: early risk sharing and detection | Smoke and held-out evidence | Hosted same-account cross-session handoff, validated Graph and Device/IP assessments, and ranked retrieval using current evidence. Matched 1,999-event rules profiles show earlier detection with higher legitimate step-up and unchanged total simulated harm prevented. |
+| Phase 4: investigation workspace | Planned | React/TypeScript/Vite workspace over real case data with the live stream, queue, case evidence timeline, graph, memory history, feedback and connection state. Add approved playbook retrieval, analyst questions and report artifacts once cases and permissions are stable. |
+| Phase 5: evaluation and submission | Planned | Replay novel and recurring variants across isolated modes. Evaluate early alert lead, accuracy, behavioural ablation, provider tokens, latency and corrections. Produce machine-readable results, three or more trace walkthroughs and a recorded demo under five minutes. |
+
+The free Meko Datapack setup and live verifier are in [MANUAL_SETUP.md](../MANUAL_SETUP.md). The learning loop has live synthetic evidence. The next evaluation step is a warmed-memory, multi-seed comparison with more legitimate burst controls and independently confirmed fingerprint families. Measure wall-clock handoff under realistic inter-arrival intervals and concurrency before drawing operational latency conclusions.

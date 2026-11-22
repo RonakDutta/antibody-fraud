@@ -1,0 +1,476 @@
+{
+  "seed": 661072,
+  "schema": "contextcon_demo_661072_315b1a3accfd4830",
+  "baselineSchema": "contextcon_demo_661072_315b1a3accfd4830_baseline",
+  "riskPackConfigured": true,
+  "baselineB": {
+    "caseId": "531303a9-c941-8aa5-98c6-90f535683023",
+    "sessionId": "sess-demo-661073",
+    "synthesis": {
+      "basis": "investigator_model",
+      "recommendation": "STEP_UP_VERIFICATION",
+      "missingCorroboration": [],
+      "conflictingRecommendations": false
+    },
+    "action": "STEP_UP_VERIFICATION",
+    "calls": 3,
+    "inputTokensReported": 1173,
+    "outputTokensReported": 351,
+    "usageMissingCalls": 0,
+    "durationMs": 57875,
+    "reuse": null,
+    "rejected": [],
+    "agents": [
+      {
+        "agent": "contextcon-behaviour-login",
+        "model": "qwen2.5:3b",
+        "provider": "ollama",
+        "accepted": true,
+        "attempts": [
+          {
+            "model": "qwen2.5:3b",
+            "usage": {
+              "inputTokens": 422,
+              "totalTokens": null,
+              "outputTokens": 127,
+              "reasoningTokens": null
+            },
+            "status": "accepted",
+            "fallback": false,
+            "provider": "ollama",
+            "durationMs": 19553
+          }
+        ]
+      },
+      {
+        "agent": "contextcon-transactions",
+        "model": "qwen2.5:3b",
+        "provider": "ollama",
+        "accepted": true,
+        "attempts": [
+          {
+            "model": "qwen2.5:3b",
+            "usage": {
+              "inputTokens": 355,
+              "totalTokens": null,
+              "outputTokens": 135,
+              "reasoningTokens": null
+            },
+            "status": "accepted",
+            "fallback": false,
+            "provider": "ollama",
+            "durationMs": 19249
+          }
+        ]
+      },
+      {
+        "agent": "contextcon-investigator",
+        "model": "qwen2.5:3b",
+        "provider": "ollama",
+        "accepted": true,
+        "attempts": [
+          {
+            "model": "qwen2.5:3b",
+            "usage": {
+              "inputTokens": 396,
+              "totalTokens": null,
+              "outputTokens": 89,
+              "reasoningTokens": null
+            },
+            "status": "accepted",
+            "fallback": false,
+            "provider": "ollama",
+            "durationMs": 19032
+          }
+        ]
+      }
+    ]
+  },
+  "a": {
+    "caseId": "a217548d-a19d-847c-a8c4-2c165d16da0f",
+    "sessionId": "sess-demo-661072",
+    "synthesis": {
+      "basis": "investigator_model",
+      "recommendation": "STEP_UP_VERIFICATION",
+      "missingCorroboration": [],
+      "conflictingRecommendations": false
+    },
+    "action": "STEP_UP_VERIFICATION",
+    "calls": 3,
+    "inputTokensReported": 1175,
+    "outputTokensReported": 343,
+    "usageMissingCalls": 0,
+    "durationMs": 106515,
+    "reuse": null,
+    "rejected": [],
+    "agents": [
+      {
+        "agent": "contextcon-behaviour-login",
+        "model": "qwen2.5:3b",
+        "provider": "ollama",
+        "accepted": true,
+        "attempts": [
+          {
+            "model": "qwen2.5:3b",
+            "usage": {
+              "inputTokens": 422,
+              "totalTokens": null,
+              "outputTokens": 133,
+              "reasoningTokens": null
+            },
+            "status": "accepted",
+            "fallback": false,
+            "provider": "ollama",
+            "durationMs": 53163
+          }
+        ]
+      },
+      {
+        "agent": "contextcon-transactions",
+        "model": "qwen2.5:3b",
+        "provider": "ollama",
+        "accepted": true,
+        "attempts": [
+          {
+            "model": "qwen2.5:3b",
+            "usage": {
+              "inputTokens": 355,
+              "totalTokens": null,
+              "outputTokens": 132,
+              "reasoningTokens": null
+            },
+            "status": "accepted",
+            "fallback": false,
+            "provider": "ollama",
+            "durationMs": 25488
+          }
+        ]
+      },
+      {
+        "agent": "contextcon-investigator",
+        "model": "qwen2.5:3b",
+        "provider": "ollama",
+        "accepted": true,
+        "attempts": [
+          {
+            "model": "qwen2.5:3b",
+            "usage": {
+              "inputTokens": 398,
+              "totalTokens": null,
+              "outputTokens": 78,
+              "reasoningTokens": null
+            },
+            "status": "accepted",
+            "fallback": false,
+            "provider": "ollama",
+            "durationMs": 23154
+          }
+        ]
+      }
+    ]
+  },
+  "b": {
+    "caseId": "531303a9-c941-8aa5-98c6-90f535683023",
+    "sessionId": "sess-demo-661073",
+    "synthesis": {
+      "basis": "investigator_model",
+      "recommendation": "STEP_UP_VERIFICATION",
+      "missingCorroboration": [],
+      "conflictingRecommendations": false
+    },
+    "action": "STEP_UP_VERIFICATION",
+    "calls": 2,
+    "inputTokensReported": 706,
+    "outputTokensReported": 229,
+    "usageMissingCalls": 0,
+    "durationMs": 55550,
+    "reuse": {
+      "version": 1,
+      "evidence": [
+        "behaviour_shift",
+        "fresh_payee",
+        "amount_spike"
+      ],
+      "memoryId": "c2a9c18a-3679-4802-a498-04fb2118db98",
+      "originCase": "a217548d-a19d-847c-a8c4-2c165d16da0f",
+      "originAgent": "contextcon-behaviour-login",
+      "skippedAgent": "contextcon-behaviour-login",
+      "publicationId": "723997a1-1cf0-440f-b3a3-9fbcb694ebf4",
+      "retrievingAgent": "contextcon-transactions"
+    },
+    "rejected": [],
+    "agents": [
+      {
+        "agent": "contextcon-transactions",
+        "model": "qwen2.5:3b",
+        "provider": "ollama",
+        "accepted": true,
+        "attempts": [
+          {
+            "model": "qwen2.5:3b",
+            "usage": {
+              "inputTokens": 357,
+              "totalTokens": null,
+              "outputTokens": 162,
+              "reasoningTokens": null
+            },
+            "status": "accepted",
+            "fallback": false,
+            "provider": "ollama",
+            "durationMs": 29886
+          }
+        ]
+      },
+      {
+        "agent": "contextcon-investigator",
+        "model": "qwen2.5:3b",
+        "provider": "ollama",
+        "accepted": true,
+        "attempts": [
+          {
+            "model": "qwen2.5:3b",
+            "usage": {
+              "inputTokens": 349,
+              "totalTokens": null,
+              "outputTokens": 67,
+              "reasoningTokens": null
+            },
+            "status": "accepted",
+            "fallback": false,
+            "provider": "ollama",
+            "durationMs": 20770
+          }
+        ]
+      }
+    ]
+  },
+  "c": {
+    "caseId": "9c153761-6101-86ce-815b-b7c5c48da205",
+    "sessionId": "sess-demo-661074",
+    "synthesis": {
+      "basis": "investigator_model",
+      "recommendation": "STEP_UP_VERIFICATION",
+      "missingCorroboration": [],
+      "conflictingRecommendations": false
+    },
+    "action": "STEP_UP_VERIFICATION",
+    "calls": 2,
+    "inputTokensReported": 703,
+    "outputTokensReported": 205,
+    "usageMissingCalls": 0,
+    "durationMs": 51386,
+    "reuse": {
+      "version": 1,
+      "evidence": [
+        "behaviour_shift",
+        "fresh_payee",
+        "amount_spike"
+      ],
+      "memoryId": "c2a9c18a-3679-4802-a498-04fb2118db98",
+      "originCase": "a217548d-a19d-847c-a8c4-2c165d16da0f",
+      "originAgent": "contextcon-behaviour-login",
+      "skippedAgent": "contextcon-behaviour-login",
+      "publicationId": "723997a1-1cf0-440f-b3a3-9fbcb694ebf4",
+      "retrievingAgent": "contextcon-transactions"
+    },
+    "rejected": [],
+    "agents": [
+      {
+        "agent": "contextcon-transactions",
+        "model": "qwen2.5:3b",
+        "provider": "ollama",
+        "accepted": true,
+        "attempts": [
+          {
+            "model": "qwen2.5:3b",
+            "usage": {
+              "inputTokens": 356,
+              "totalTokens": null,
+              "outputTokens": 143,
+              "reasoningTokens": null
+            },
+            "status": "accepted",
+            "fallback": false,
+            "provider": "ollama",
+            "durationMs": 28284
+          }
+        ]
+      },
+      {
+        "agent": "contextcon-investigator",
+        "model": "qwen2.5:3b",
+        "provider": "ollama",
+        "accepted": true,
+        "attempts": [
+          {
+            "model": "qwen2.5:3b",
+            "usage": {
+              "inputTokens": 347,
+              "totalTokens": null,
+              "outputTokens": 62,
+              "reasoningTokens": null
+            },
+            "status": "accepted",
+            "fallback": false,
+            "provider": "ollama",
+            "durationMs": 18586
+          }
+        ]
+      }
+    ]
+  },
+  "d": {
+    "caseId": "15ecd862-b5fd-8541-8b01-a5ab399b4d68",
+    "sessionId": "sess-demo-661075",
+    "synthesis": {
+      "basis": "investigator_model",
+      "recommendation": "STEP_UP_VERIFICATION",
+      "missingCorroboration": [],
+      "conflictingRecommendations": true
+    },
+    "action": "STEP_UP_VERIFICATION",
+    "calls": 3,
+    "inputTokensReported": 1125,
+    "outputTokensReported": 345,
+    "usageMissingCalls": 0,
+    "durationMs": 67520,
+    "reuse": null,
+    "rejected": [
+      {
+        "reason": "conditions_not_met",
+        "memoryId": "29b0316c-d90b-492f-9db6-0c3381b63ef0"
+      },
+      {
+        "reason": "superseded",
+        "memoryId": "c2a9c18a-3679-4802-a498-04fb2118db98"
+      }
+    ],
+    "agents": [
+      {
+        "agent": "contextcon-behaviour-login",
+        "model": "qwen2.5:3b",
+        "provider": "ollama",
+        "accepted": true,
+        "attempts": [
+          {
+            "model": "qwen2.5:3b",
+            "usage": {
+              "inputTokens": 390,
+              "totalTokens": null,
+              "outputTokens": 144,
+              "reasoningTokens": null
+            },
+            "status": "accepted",
+            "fallback": false,
+            "provider": "ollama",
+            "durationMs": 26500
+          }
+        ]
+      },
+      {
+        "agent": "contextcon-transactions",
+        "model": "qwen2.5:3b",
+        "provider": "ollama",
+        "accepted": true,
+        "attempts": [
+          {
+            "model": "qwen2.5:3b",
+            "usage": {
+              "inputTokens": 355,
+              "totalTokens": null,
+              "outputTokens": 128,
+              "reasoningTokens": null
+            },
+            "status": "accepted",
+            "fallback": false,
+            "provider": "ollama",
+            "durationMs": 20951
+          }
+        ]
+      },
+      {
+        "agent": "contextcon-investigator",
+        "model": "qwen2.5:3b",
+        "provider": "ollama",
+        "accepted": true,
+        "attempts": [
+          {
+            "model": "qwen2.5:3b",
+            "usage": {
+              "inputTokens": 380,
+              "totalTokens": null,
+              "outputTokens": 73,
+              "reasoningTokens": null
+            },
+            "status": "accepted",
+            "fallback": false,
+            "provider": "ollama",
+            "durationMs": 16220
+          }
+        ]
+      }
+    ]
+  },
+  "correction": {
+    "incorrectFingerprintAttributionBefore": 1,
+    "incorrectFingerprintAttributionAfter": 0
+  },
+  "publications": [
+    {
+      "id": "723997a1-1cf0-440f-b3a3-9fbcb694ebf4",
+      "pack": "confirmed",
+      "state": "published",
+      "attempts": 2,
+      "verification": "exact_id"
+    },
+    {
+      "id": "fc824c78-7a73-497e-aded-7cc37953904b",
+      "pack": "risk",
+      "state": "published",
+      "attempts": 2,
+      "verification": "exact_id"
+    },
+    {
+      "id": "09f83164-2694-4d17-8f60-777840301573",
+      "pack": "risk",
+      "state": "published",
+      "attempts": 2,
+      "verification": "exact_id"
+    },
+    {
+      "id": "aaa80ba0-5af9-4d31-b19d-083871a49cd8",
+      "pack": "risk",
+      "state": "published",
+      "attempts": 2,
+      "verification": "exact_id"
+    },
+    {
+      "id": "e8334b2c-1676-43c3-88ea-8cc6d0bb7753",
+      "pack": "confirmed",
+      "state": "published",
+      "attempts": 2,
+      "verification": "exact_id"
+    },
+    {
+      "id": "ab2f3b76-0150-41cf-a35e-17b79ece1c90",
+      "pack": "risk",
+      "state": "published",
+      "attempts": 2,
+      "verification": "exact_id"
+    },
+    {
+      "id": "303f338d-67f9-4275-bc16-7fe346a2c928",
+      "pack": "risk",
+      "state": "published",
+      "attempts": 2,
+      "verification": "exact_id"
+    },
+    {
+      "id": "a793cd96-da04-43ba-b017-8aee2cfe0d8c",
+      "pack": "risk",
+      "state": "published",
+      "attempts": 2,
+      "verification": "exact_id"
+    }
+  ]
+}

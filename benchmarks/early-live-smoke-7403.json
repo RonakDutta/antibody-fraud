@@ -1,0 +1,408 @@
+{
+  "corpus": {
+    "split": "evaluation",
+    "seed": 7403,
+    "requestedMaxEvents": 20,
+    "scenario": "credential-stuffing"
+  },
+  "runs": [
+    {
+      "mode": "rules",
+      "profile": "extended",
+      "schema": "contextcon_eval_204c7ebf84c2b22a_rules",
+      "provider": null,
+      "model": null,
+      "retrievalScope": "disabled",
+      "policyThresholds": {
+        "challenge": 25,
+        "block": 72
+      },
+      "wallMs": 381,
+      "roleMix": {},
+      "interventionSemantics": "Identical attempted events are shadow-replayed. In a separate effect ledger, a BLOCK or failed synthetic challenge holds that account/session; a passed challenge permits the attempt. An earlier hold can prevent a later impact only in that same session. These outcomes are simulated, not counterfactual engine retraining.",
+      "classificationSemantics": "Unweighted event-level TP/FP/TN/FN for recommendations. BLOCK or STEP_UP_VERIFICATION is positive, including when a challenge passes. Malicious episode action and impact rows are ground-truth positives. Warmup and failed-authentication observation rows are excluded.",
+      "eventCount": 17,
+      "warmupExcluded": 10,
+      "failedAuthObservationsExcluded": 5,
+      "actionCounts": {
+        "ALLOW": 0,
+        "STEP_UP_VERIFICATION": 2,
+        "BLOCK": 0
+      },
+      "simulatedGates": {
+        "challengePassed": 2,
+        "challengeFailed": 0,
+        "directBlock": 0,
+        "precludedAttempts": 0
+      },
+      "classification": {
+        "tp": 2,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": 1,
+        "recall": 1,
+        "f1": 1,
+        "falsePositiveRate": null,
+        "falseNegativeRate": 0
+      },
+      "byScenario": {
+        "credential-stuffing": {
+          "episodes": 1,
+          "classification": {
+            "tp": 2,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0,
+            "precision": 1,
+            "recall": 1,
+            "f1": 1,
+            "falsePositiveRate": null,
+            "falseNegativeRate": 0
+          },
+          "attacksAlertedBeforeImpact": 1,
+          "attacksPrevented": 0
+        }
+      },
+      "legitimateStepUpRate": null,
+      "legitimateActionableEvents": 0,
+      "attacks": {
+        "total": 1,
+        "alertedBeforeImpact": 1,
+        "alertLeadSeconds": {
+          "p50": 240,
+          "p95": 240
+        },
+        "preventedBeforeImpact": 0,
+        "preventedAtImpact": 0,
+        "preventedByBlock": 0,
+        "preventedByFailedChallenge": 0,
+        "executed": 1,
+        "byImpactKind": {
+          "account_access": {
+            "total": 1,
+            "alertedBeforeImpact": 1,
+            "prevented": 0
+          },
+          "transfer": {
+            "total": 0,
+            "alertedBeforeImpact": 0,
+            "prevented": 0
+          }
+        },
+        "simulatedTransferHarmPreventedMinor": 0,
+        "simulatedTransferHarmExecutedMinor": 0
+      },
+      "telemetry": {
+        "totalCalls": 0,
+        "measuredUsageCalls": 0,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "latencyMs": {
+          "p50": 13.821199999999862,
+          "p95": 22.422900000000027
+        },
+        "casesWithVerifiedFingerprintReuse": 0,
+        "casesWithEarlierPublishedObservations": 0,
+        "rankedSearches": 0,
+        "rankedHits": 0,
+        "rejectedCandidates": 0
+      },
+      "episodes": [
+        {
+          "episodeId": "ep-8311b96bc1e5ee3ec553d237",
+          "scenario": "credential-stuffing",
+          "attackEpisode": true,
+          "impactKind": "account_access",
+          "challengeOutcomeIfRequested": "pass",
+          "alertLeadSeconds": 240,
+          "impactOutcome": "executed",
+          "intervention": null,
+          "intendedTransferMinor": 0,
+          "counts": {
+            "tp": 2,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0
+          }
+        }
+      ]
+    },
+    {
+      "mode": "agents",
+      "profile": "extended",
+      "schema": "contextcon_eval_204c7ebf84c2b22a_agents",
+      "provider": "ollama",
+      "model": "qwen2.5:3b",
+      "retrievalScope": "disabled",
+      "policyThresholds": {
+        "challenge": 25,
+        "block": 72
+      },
+      "wallMs": 105578,
+      "roleMix": {
+        "contextcon-behaviour-login": {
+          "cases": 2,
+          "modelCalls": 2,
+          "validatedResults": 2
+        },
+        "contextcon-device-ip": {
+          "cases": 1,
+          "modelCalls": 1,
+          "validatedResults": 1
+        },
+        "contextcon-investigator": {
+          "cases": 2,
+          "modelCalls": 2,
+          "validatedResults": 2
+        }
+      },
+      "interventionSemantics": "Identical attempted events are shadow-replayed. In a separate effect ledger, a BLOCK or failed synthetic challenge holds that account/session; a passed challenge permits the attempt. An earlier hold can prevent a later impact only in that same session. These outcomes are simulated, not counterfactual engine retraining.",
+      "classificationSemantics": "Unweighted event-level TP/FP/TN/FN for recommendations. BLOCK or STEP_UP_VERIFICATION is positive, including when a challenge passes. Malicious episode action and impact rows are ground-truth positives. Warmup and failed-authentication observation rows are excluded.",
+      "eventCount": 17,
+      "warmupExcluded": 10,
+      "failedAuthObservationsExcluded": 5,
+      "actionCounts": {
+        "ALLOW": 0,
+        "STEP_UP_VERIFICATION": 2,
+        "BLOCK": 0
+      },
+      "simulatedGates": {
+        "challengePassed": 2,
+        "challengeFailed": 0,
+        "directBlock": 0,
+        "precludedAttempts": 0
+      },
+      "classification": {
+        "tp": 2,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": 1,
+        "recall": 1,
+        "f1": 1,
+        "falsePositiveRate": null,
+        "falseNegativeRate": 0
+      },
+      "byScenario": {
+        "credential-stuffing": {
+          "episodes": 1,
+          "classification": {
+            "tp": 2,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0,
+            "precision": 1,
+            "recall": 1,
+            "f1": 1,
+            "falsePositiveRate": null,
+            "falseNegativeRate": 0
+          },
+          "attacksAlertedBeforeImpact": 1,
+          "attacksPrevented": 0
+        }
+      },
+      "legitimateStepUpRate": null,
+      "legitimateActionableEvents": 0,
+      "attacks": {
+        "total": 1,
+        "alertedBeforeImpact": 1,
+        "alertLeadSeconds": {
+          "p50": 240,
+          "p95": 240
+        },
+        "preventedBeforeImpact": 0,
+        "preventedAtImpact": 0,
+        "preventedByBlock": 0,
+        "preventedByFailedChallenge": 0,
+        "executed": 1,
+        "byImpactKind": {
+          "account_access": {
+            "total": 1,
+            "alertedBeforeImpact": 1,
+            "prevented": 0
+          },
+          "transfer": {
+            "total": 0,
+            "alertedBeforeImpact": 0,
+            "prevented": 0
+          }
+        },
+        "simulatedTransferHarmPreventedMinor": 0,
+        "simulatedTransferHarmExecutedMinor": 0
+      },
+      "telemetry": {
+        "totalCalls": 5,
+        "measuredUsageCalls": 5,
+        "inputTokens": 1943,
+        "outputTokens": 558,
+        "latencyMs": {
+          "p50": 10.31880000000001,
+          "p95": 69618.9548
+        },
+        "casesWithVerifiedFingerprintReuse": 0,
+        "casesWithEarlierPublishedObservations": 0,
+        "rankedSearches": 0,
+        "rankedHits": 0,
+        "rejectedCandidates": 0
+      },
+      "episodes": [
+        {
+          "episodeId": "ep-8311b96bc1e5ee3ec553d237",
+          "scenario": "credential-stuffing",
+          "attackEpisode": true,
+          "impactKind": "account_access",
+          "challengeOutcomeIfRequested": "pass",
+          "alertLeadSeconds": 240,
+          "impactOutcome": "executed",
+          "intervention": null,
+          "intendedTransferMinor": 0,
+          "counts": {
+            "tp": 2,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0
+          }
+        }
+      ]
+    },
+    {
+      "mode": "meko",
+      "profile": "extended",
+      "schema": "contextcon_eval_204c7ebf84c2b22a_meko",
+      "provider": "ollama",
+      "model": "qwen2.5:3b",
+      "retrievalScope": "ordinary ranked. Fresh local registry. This sweep does not queue or publish new observations.",
+      "policyThresholds": {
+        "challenge": 25,
+        "block": 72
+      },
+      "wallMs": 107825,
+      "roleMix": {
+        "contextcon-behaviour-login": {
+          "cases": 2,
+          "modelCalls": 2,
+          "validatedResults": 2
+        },
+        "contextcon-device-ip": {
+          "cases": 1,
+          "modelCalls": 1,
+          "validatedResults": 1
+        },
+        "contextcon-investigator": {
+          "cases": 2,
+          "modelCalls": 2,
+          "validatedResults": 2
+        }
+      },
+      "interventionSemantics": "Identical attempted events are shadow-replayed. In a separate effect ledger, a BLOCK or failed synthetic challenge holds that account/session; a passed challenge permits the attempt. An earlier hold can prevent a later impact only in that same session. These outcomes are simulated, not counterfactual engine retraining.",
+      "classificationSemantics": "Unweighted event-level TP/FP/TN/FN for recommendations. BLOCK or STEP_UP_VERIFICATION is positive, including when a challenge passes. Malicious episode action and impact rows are ground-truth positives. Warmup and failed-authentication observation rows are excluded.",
+      "eventCount": 17,
+      "warmupExcluded": 10,
+      "failedAuthObservationsExcluded": 5,
+      "actionCounts": {
+        "ALLOW": 0,
+        "STEP_UP_VERIFICATION": 2,
+        "BLOCK": 0
+      },
+      "simulatedGates": {
+        "challengePassed": 2,
+        "challengeFailed": 0,
+        "directBlock": 0,
+        "precludedAttempts": 0
+      },
+      "classification": {
+        "tp": 2,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": 1,
+        "recall": 1,
+        "f1": 1,
+        "falsePositiveRate": null,
+        "falseNegativeRate": 0
+      },
+      "byScenario": {
+        "credential-stuffing": {
+          "episodes": 1,
+          "classification": {
+            "tp": 2,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0,
+            "precision": 1,
+            "recall": 1,
+            "f1": 1,
+            "falsePositiveRate": null,
+            "falseNegativeRate": 0
+          },
+          "attacksAlertedBeforeImpact": 1,
+          "attacksPrevented": 0
+        }
+      },
+      "legitimateStepUpRate": null,
+      "legitimateActionableEvents": 0,
+      "attacks": {
+        "total": 1,
+        "alertedBeforeImpact": 1,
+        "alertLeadSeconds": {
+          "p50": 240,
+          "p95": 240
+        },
+        "preventedBeforeImpact": 0,
+        "preventedAtImpact": 0,
+        "preventedByBlock": 0,
+        "preventedByFailedChallenge": 0,
+        "executed": 1,
+        "byImpactKind": {
+          "account_access": {
+            "total": 1,
+            "alertedBeforeImpact": 1,
+            "prevented": 0
+          },
+          "transfer": {
+            "total": 0,
+            "alertedBeforeImpact": 0,
+            "prevented": 0
+          }
+        },
+        "simulatedTransferHarmPreventedMinor": 0,
+        "simulatedTransferHarmExecutedMinor": 0
+      },
+      "telemetry": {
+        "totalCalls": 5,
+        "measuredUsageCalls": 5,
+        "inputTokens": 1941,
+        "outputTokens": 558,
+        "latencyMs": {
+          "p50": 9.81369999999879,
+          "p95": 66800.3014
+        },
+        "casesWithVerifiedFingerprintReuse": 0,
+        "casesWithEarlierPublishedObservations": 0,
+        "rankedSearches": 3,
+        "rankedHits": 30,
+        "rejectedCandidates": 0
+      },
+      "episodes": [
+        {
+          "episodeId": "ep-8311b96bc1e5ee3ec553d237",
+          "scenario": "credential-stuffing",
+          "attackEpisode": true,
+          "impactKind": "account_access",
+          "challengeOutcomeIfRequested": "pass",
+          "alertLeadSeconds": 240,
+          "impactOutcome": "executed",
+          "intervention": null,
+          "intendedTransferMinor": 0,
+          "counts": {
+            "tp": 2,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0
+          }
+        }
+      ]
+    }
+  ]
+}

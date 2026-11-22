@@ -1,0 +1,110 @@
+{
+  "schema": "contextcon_demo_661072_9df581386fca4ded",
+  "seed": 50271,
+  "historicalFingerprintsInRegistry": 2,
+  "results": [
+    {
+      "scenario": "takeover after a reset",
+      "expectedApplicable": true,
+      "observedApplicable": true,
+      "policyAction": "STEP_UP_VERIFICATION",
+      "query": "ContextCon suspicious transfer recent password reset, new payment recipient, recently registered recipient, amount above historical baseline, unusual interaction timing",
+      "lookup": "search",
+      "candidates": 10,
+      "elapsedMs": 6225,
+      "selected": {
+        "publicationId": "df6465a9-b257-4008-a740-a2bd5cb52a9e",
+        "memoryId": "de4f82a4-b40e-4445-a021-c25f6cccf548",
+        "originCase": "a217548d-a19d-847c-a8c4-2c165d16da0f",
+        "originAgent": "contextcon-behaviour-login",
+        "retrievingAgent": "contextcon-transactions",
+        "version": 2,
+        "evidence": [
+          "behaviour_shift",
+          "fresh_payee",
+          "amount_spike",
+          "recent_reset"
+        ],
+        "skippedAgent": "contextcon-behaviour-login"
+      },
+      "rejectionsByReason": {
+        "unverified": 9
+      }
+    },
+    {
+      "scenario": "second account after a reset",
+      "expectedApplicable": true,
+      "observedApplicable": true,
+      "policyAction": "STEP_UP_VERIFICATION",
+      "query": "ContextCon suspicious transfer recent password reset, new payment recipient, recently registered recipient, amount above historical baseline, unusual interaction timing",
+      "lookup": "search",
+      "candidates": 10,
+      "elapsedMs": 2995,
+      "selected": {
+        "publicationId": "df6465a9-b257-4008-a740-a2bd5cb52a9e",
+        "memoryId": "de4f82a4-b40e-4445-a021-c25f6cccf548",
+        "originCase": "a217548d-a19d-847c-a8c4-2c165d16da0f",
+        "originAgent": "contextcon-behaviour-login",
+        "retrievingAgent": "contextcon-transactions",
+        "version": 2,
+        "evidence": [
+          "behaviour_shift",
+          "fresh_payee",
+          "amount_spike",
+          "recent_reset"
+        ],
+        "skippedAgent": "contextcon-behaviour-login"
+      },
+      "rejectionsByReason": {
+        "unverified": 9
+      }
+    },
+    {
+      "scenario": "legitimate look-alike without a reset",
+      "expectedApplicable": false,
+      "observedApplicable": false,
+      "policyAction": "STEP_UP_VERIFICATION",
+      "query": "ContextCon suspicious transfer new payment recipient, recently registered recipient, amount above historical baseline, unusual interaction timing",
+      "lookup": "search",
+      "candidates": 10,
+      "elapsedMs": 1878,
+      "selected": null,
+      "rejectionsByReason": {
+        "unverified": 9,
+        "superseded": 1
+      }
+    },
+    {
+      "scenario": "velocity without timing deviation",
+      "expectedApplicable": false,
+      "observedApplicable": false,
+      "policyAction": "STEP_UP_VERIFICATION",
+      "query": "ContextCon suspicious transfer new payment recipient, recently registered recipient, amount above historical baseline, burst of transfers",
+      "lookup": "search",
+      "candidates": 10,
+      "elapsedMs": 1374,
+      "selected": null,
+      "rejectionsByReason": {
+        "unverified": 9,
+        "superseded": 1
+      }
+    },
+    {
+      "scenario": "reset and amount spike without timing evidence",
+      "expectedApplicable": false,
+      "observedApplicable": false,
+      "policyAction": "STEP_UP_VERIFICATION",
+      "query": "ContextCon suspicious transfer recent password reset, new payment recipient, recently registered recipient, amount above historical baseline",
+      "lookup": "search",
+      "candidates": 10,
+      "elapsedMs": 3128,
+      "selected": null,
+      "rejectionsByReason": {
+        "unverified": 8,
+        "superseded": 1,
+        "conditions_not_met": 1
+      }
+    }
+  ],
+  "agreement": 5
+}

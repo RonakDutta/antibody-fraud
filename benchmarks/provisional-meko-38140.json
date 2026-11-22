@@ -1,0 +1,259 @@
+{
+  "schema": "contextcon_signals_74e57a0d40c64364",
+  "earlier": {
+    "action": "STEP_UP_VERIFICATION",
+    "score": 52,
+    "calls": 4,
+    "agents": [
+      {
+        "id": "contextcon-behaviour-login",
+        "accepted": true,
+        "evidence": [
+          "login_pressure",
+          "behaviour_shift"
+        ],
+        "memories": []
+      },
+      {
+        "id": "contextcon-device-ip",
+        "accepted": true,
+        "evidence": [
+          "new_device",
+          "unfamiliar_device_failed_auth"
+        ],
+        "memories": []
+      },
+      {
+        "id": "contextcon-graph",
+        "accepted": true,
+        "evidence": [
+          "graph_coordinated_authentication"
+        ],
+        "memories": []
+      },
+      {
+        "id": "contextcon-investigator",
+        "accepted": true,
+        "evidence": [
+          "login_pressure",
+          "new_device",
+          "behaviour_shift",
+          "unfamiliar_device_failed_auth",
+          "graph_coordinated_authentication"
+        ],
+        "memories": []
+      }
+    ],
+    "graph": {
+      "root": {
+        "id": "acct-b8c1f9048fbd6edf9185509a",
+        "type": "account"
+      },
+      "paths": [
+        {
+          "links": [
+            {
+              "via": {
+                "id": "dev-b8c1f9048fbd6edf9185509a-alternate",
+                "type": "device"
+              },
+              "edges": [
+                {
+                  "edgeId": "47945571-d2a1-8c9b-b444-b245c53551a8:device",
+                  "account": {
+                    "id": "acct-b8c1f9048fbd6edf9185509a",
+                    "type": "account"
+                  },
+                  "eventId": "47945571-d2a1-8c9b-b444-b245c53551a8",
+                  "eventKind": "login",
+                  "identifier": {
+                    "id": "dev-b8c1f9048fbd6edf9185509a-alternate",
+                    "type": "device"
+                  },
+                  "occurredAt": "2026-10-01T12:00:00+00:00",
+                  "relationship": "uses_device"
+                },
+                {
+                  "edgeId": "0f2e6805-3230-43ac-8570-950e71da9415:device",
+                  "account": {
+                    "id": "acct-neighbour-38140",
+                    "type": "account"
+                  },
+                  "eventId": "0f2e6805-3230-43ac-8570-950e71da9415",
+                  "eventKind": "password_reset",
+                  "identifier": {
+                    "id": "dev-b8c1f9048fbd6edf9185509a-alternate",
+                    "type": "device"
+                  },
+                  "occurredAt": "2026-10-01T11:58:30+00:00",
+                  "relationship": "uses_device"
+                }
+              ]
+            }
+          ],
+          "pathId": "path-1",
+          "accounts": [
+            "acct-b8c1f9048fbd6edf9185509a",
+            "acct-neighbour-38140"
+          ],
+          "priorConfirmedCase": null,
+          "recentAuthenticationRiskEvents": 2
+        }
+      ],
+      "limits": {
+        "paths": 20,
+        "accountHops": 2,
+        "historyHours": 24,
+        "branchesPerHop": 4
+      },
+      "eventKind": "login",
+      "eventTime": "2026-10-01T12:00:00.000Z",
+      "observedAt": "2026-11-22T10:15:00.326Z",
+      "directAccountCounts": {
+        "payee": 0,
+        "device": 1,
+        "network": 0,
+        "session": 0
+      }
+    }
+  },
+  "later": {
+    "action": "STEP_UP_VERIFICATION",
+    "score": 50,
+    "calls": 3,
+    "agents": [
+      {
+        "id": "contextcon-behaviour-login",
+        "accepted": true,
+        "evidence": [
+          "login_pressure",
+          "behaviour_shift"
+        ],
+        "memories": []
+      },
+      {
+        "id": "contextcon-transactions",
+        "accepted": true,
+        "evidence": [
+          "sensitive_payee_transition"
+        ],
+        "memories": [
+          "6a1be94a-a679-404c-b41f-d45b145e0546"
+        ]
+      },
+      {
+        "id": "contextcon-investigator",
+        "accepted": true,
+        "evidence": [
+          "login_pressure",
+          "behaviour_shift",
+          "sensitive_payee_transition"
+        ],
+        "memories": []
+      }
+    ],
+    "graph": {
+      "root": {
+        "id": "acct-b8c1f9048fbd6edf9185509a",
+        "type": "account"
+      },
+      "paths": [
+        {
+          "links": [
+            {
+              "via": {
+                "id": "dev-b8c1f9048fbd6edf9185509a-alternate",
+                "type": "device"
+              },
+              "edges": [
+                {
+                  "edgeId": "4049b643-a760-8edf-8d4d-219efd37290a:device",
+                  "account": {
+                    "id": "acct-b8c1f9048fbd6edf9185509a",
+                    "type": "account"
+                  },
+                  "eventId": "4049b643-a760-8edf-8d4d-219efd37290a",
+                  "eventKind": "payee_added",
+                  "identifier": {
+                    "id": "dev-b8c1f9048fbd6edf9185509a-alternate",
+                    "type": "device"
+                  },
+                  "occurredAt": "2026-10-01T12:04:00+00:00",
+                  "relationship": "uses_device"
+                },
+                {
+                  "edgeId": "0f2e6805-3230-43ac-8570-950e71da9415:device",
+                  "account": {
+                    "id": "acct-neighbour-38140",
+                    "type": "account"
+                  },
+                  "eventId": "0f2e6805-3230-43ac-8570-950e71da9415",
+                  "eventKind": "password_reset",
+                  "identifier": {
+                    "id": "dev-b8c1f9048fbd6edf9185509a-alternate",
+                    "type": "device"
+                  },
+                  "occurredAt": "2026-10-01T11:58:30+00:00",
+                  "relationship": "uses_device"
+                }
+              ]
+            }
+          ],
+          "pathId": "path-1",
+          "accounts": [
+            "acct-b8c1f9048fbd6edf9185509a",
+            "acct-neighbour-38140"
+          ],
+          "priorConfirmedCase": null,
+          "recentAuthenticationRiskEvents": 2
+        }
+      ],
+      "limits": {
+        "paths": 20,
+        "accountHops": 2,
+        "historyHours": 24,
+        "branchesPerHop": 4
+      },
+      "eventKind": "payee_added",
+      "eventTime": "2026-10-01T12:04:00.000Z",
+      "observedAt": "2026-11-22T10:16:34.750Z",
+      "directAccountCounts": {
+        "payee": 0,
+        "device": 1,
+        "network": 0,
+        "session": 0
+      }
+    }
+  },
+  "shared": [
+    {
+      "memoryId": "6a1be94a-a679-404c-b41f-d45b145e0546",
+      "originCase": "47945571-d2a1-8c9b-b444-b245c53551a8",
+      "evidenceIds": [
+        "login_pressure",
+        "behaviour_shift"
+      ],
+      "originAgent": "contextcon-behaviour-login",
+      "crossSession": true,
+      "receivingAgent": "contextcon-transactions",
+      "sourceOccurredAt": "2026-10-01T12:00:00.000Z"
+    }
+  ],
+  "leadSecondsBeforeTransfer": 60,
+  "impactSubmitted": false,
+  "observedWallClock": {
+    "earlierCaseMs": 77762,
+    "earlierCaseDecisionToBehaviourVerificationMs": 16135,
+    "laterCaseMs": 42237
+  },
+  "sourcePublication": {
+    "state": "published",
+    "attempts": 2,
+    "verification": "exact_id",
+    "publishedAgentRolesFromEarlierCase": [
+      "contextcon-behaviour-login",
+      "contextcon-device-ip",
+      "contextcon-graph"
+    ]
+  }
+}

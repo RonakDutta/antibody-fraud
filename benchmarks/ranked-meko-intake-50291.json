@@ -1,0 +1,46 @@
+{
+  "schema": "contextcon_demo_661072_9df581386fca4ded",
+  "results": [
+    {
+      "seed": 50291,
+      "omitReset": false,
+      "lookup": "search",
+      "status": "ok",
+      "matches": 10,
+      "selected": {
+        "version": 2,
+        "evidence": [
+          "behaviour_shift",
+          "fresh_payee",
+          "amount_spike",
+          "recent_reset"
+        ],
+        "memoryId": "de4f82a4-b40e-4445-a021-c25f6cccf548",
+        "originCase": "a217548d-a19d-847c-a8c4-2c165d16da0f",
+        "originAgent": "contextcon-behaviour-login",
+        "skippedAgent": "contextcon-behaviour-login",
+        "publicationId": "df6465a9-b257-4008-a740-a2bd5cb52a9e",
+        "retrievingAgent": "contextcon-transactions"
+      },
+      "rejectionsByReason": {
+        "unverified": 9
+      },
+      "action": "STEP_UP_VERIFICATION",
+      "calls": 0
+    },
+    {
+      "seed": 50292,
+      "omitReset": true,
+      "lookup": "search",
+      "status": "ok",
+      "matches": 10,
+      "selected": null,
+      "rejectionsByReason": {
+        "unverified": 9,
+        "superseded": 1
+      },
+      "action": "STEP_UP_VERIFICATION",
+      "calls": 0
+    }
+  ]
+}

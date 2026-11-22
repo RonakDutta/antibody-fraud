@@ -1,0 +1,70 @@
+{
+  "mode": "agents",
+  "provider": "ollama",
+  "runtimeVersion": "0.30.10",
+  "model": "qwen2.5:3b",
+  "timeoutMs": 60000,
+  "scope": "Two live local API probes, one takeover login per seed; no Meko",
+  "cases": [
+    {
+      "seed": 25,
+      "scenario": "takeover",
+      "eventKind": "login",
+      "caseId": "ba1bb5fe-1f3e-83be-8c2e-01253cc3b4ce",
+      "path": "fallback",
+      "action": "STEP_UP_VERIFICATION",
+      "requestDurationMs": 53971.22440000001,
+      "calls": [
+        {
+          "error": "invalid_agent_result",
+          "usage": {
+            "inputTokens": 232,
+            "totalTokens": null,
+            "outputTokens": 142,
+            "reasoningTokens": null
+          },
+          "status": "rejected",
+          "durationMs": 31247.0234
+        },
+        {
+          "error": "invalid_agent_result",
+          "usage": {
+            "inputTokens": 242,
+            "totalTokens": null,
+            "outputTokens": 112,
+            "reasoningTokens": null
+          },
+          "status": "rejected",
+          "durationMs": 22708.50110000001
+        }
+      ],
+      "agentEvidenceIds": [],
+      "agentRecommendation": null
+    },
+    {
+      "seed": 26,
+      "scenario": "takeover",
+      "eventKind": "login",
+      "caseId": "ad9bf31b-d533-86d0-8632-51ee6481f513",
+      "path": "agent_review",
+      "action": "STEP_UP_VERIFICATION",
+      "requestDurationMs": 19190.30229999998,
+      "calls": [
+        {
+          "usage": {
+            "inputTokens": 232,
+            "totalTokens": null,
+            "outputTokens": 118,
+            "reasoningTokens": null
+          },
+          "status": "accepted",
+          "durationMs": 19178.631000000023
+        }
+      ],
+      "agentEvidenceIds": [
+        "behaviour_shift"
+      ],
+      "agentRecommendation": "ALLOW"
+    }
+  ]
+}
