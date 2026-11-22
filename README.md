@@ -82,6 +82,8 @@ Run `createdb` once. For local AI or Meko, follow [MANUAL_SETUP.md](MANUAL_SETUP
 
 ## Project notes
 
+- Handoff for coding agents (state, invariants, backlog): [AGENTS.md](AGENTS.md)
+
 - Design and data model [Architecture](docs/ARCHITECTURE.md), [Data model](docs/DATA_MODEL.md), [Decision flow](docs/DECISION_FLOW.md), [Design decisions](docs/DESIGN_DECISIONS.md)
 - Work log of changes, audit findings and open items: [Work log](docs/WORKLOG.md)
 - Evidence and delivery [Testing](docs/TESTING.md), [Benchmarks](docs/BENCHMARKS.md), [Meko capabilities](docs/MEKO_CAPABILITIES.md), [Roadmap](docs/ROADMAP.md), [Hackathon strategy](docs/HACKATHON_STRATEGY.md)

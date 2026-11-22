@@ -2,6 +2,8 @@
 
 A running record of what was changed, why, and what is still open. Add a new dated entry at the top for each work session. Keep earlier entries as they were written; update only the [open items](#open-items) table.
 
+The current state, the invariants and the prioritized backlog for the next agent are in [AGENTS.md](../AGENTS.md).
+
 ## Open items
 
 | Item | Status | Where |
