@@ -7,10 +7,11 @@ import { actionSchema, type RiskAssessment } from './risk.js';
 import { failureCode, type ContextSearch, type MemoryReader, type ModelUsage, type StructuredModel } from './integrations/ports.js';
 
 import { ModelHttpError } from './integrations/models.js';
-import { FINGERPRINT_QUERY, GRAPH_AGENT, LOGIN_AGENT, TRANSFER_AGENT, type LearningService, type Pack, type ProvisionalSignal, type Reuse } from './learning.js';
+import { FINGERPRINT_QUERY, GRAPH_AGENT, INVESTIGATOR_AGENT, LOGIN_AGENT, TRANSFER_AGENT, type LearningService, type Pack, type ProvisionalSignal, type Reuse } from './learning.js';
+import type { MemoryPolicyMode } from './memory-policy.js';
 
 const behaviourAgentId = LOGIN_AGENT;
-const investigatorId = 'contextcon-investigator';
+const investigatorId = INVESTIGATOR_AGENT;
 const evidenceTopics = new Map([
   ['login_pressure', 'repeated failed logins'],
   ['recent_reset', 'recent password reset'],
@@ -81,6 +82,8 @@ export type InvestigationOptions = {
   collective?: boolean;
   advanced?: boolean;
   publishProvisional?: boolean;
+  /** off keeps earlier behaviour. shadow records would-be decisions. enforce lets verified patterns block. */
+  memoryPolicy?: MemoryPolicyMode;
   memoryTimeoutMs: number;
   modelTimeoutMs: number;
 };

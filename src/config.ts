@@ -15,6 +15,7 @@ export const configSchema = z.object({
   INVESTIGATION_TEAM: z.enum(['single', 'collective']).default('collective'),
   MEKO_AUTO_PUBLISH: z.enum(['on', 'off']).default('on'),
   INVESTIGATION_PROFILE: z.enum(['extended', 'legacy']).default('extended'),
+  MEMORY_POLICY: z.enum(['off', 'shadow', 'enforce']).default('off'),
   MEKO_TIMEOUT_MS: z.coerce.number().int().min(100).max(15_000).default(12_000),
   LLM_PROVIDER: z.enum(['none', 'gemini', 'groq', 'ollama']).default('none'),
   GEMINI_API_KEY: secret,

@@ -18,11 +18,12 @@ const cases = new CaseService(pool, {
 }, {
   mode: config.INVESTIGATION_MODE, memory, model: createModel(config), investigatorModel: createModel(config, true),
   fallbackModel: createFallbackModel(config), advanced: config.INVESTIGATION_PROFILE === 'extended', collective: config.INVESTIGATION_TEAM === 'collective', learning,
-  memoryTimeoutMs: config.MEKO_TIMEOUT_MS, modelTimeoutMs: config.LLM_TIMEOUT_MS,
+  memoryTimeoutMs: config.MEKO_TIMEOUT_MS, modelTimeoutMs: config.LLM_TIMEOUT_MS, memoryPolicy: config.MEMORY_POLICY,
 });
 
 const server = createApp(pool, cases, learning).listen(config.PORT, '127.0.0.1', () => {
-  console.log('ContextCon API listening at http://127.0.0.1:' + config.PORT + ' (' + config.INVESTIGATION_MODE + ' mode)');
+  console.log('ContextCon API listening at http://127.0.0.1:' + config.PORT + ' (' + config.INVESTIGATION_MODE +
+    ' mode, verified-pattern policy ' + config.MEMORY_POLICY + ')');
 });
 const stopWorker = learning && config.INVESTIGATION_MODE === 'meko' && config.MEKO_AUTO_PUBLISH === 'on'
   ? startPublicationWorker(learning, () => console.error('Publication worker step failed. It will retry.')) : undefined;
